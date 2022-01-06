@@ -11,6 +11,11 @@ export default createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
+    body {
+        background: #eee;
+
+    }
+
     button { 
         cursor: pointer;
     }

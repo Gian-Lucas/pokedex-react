@@ -6,7 +6,7 @@ export const Container = styled.header`
   justify-content: space-between;
 
   padding: 1rem;
-  background: #eee;
+  background: #ccc;
 
   .logo {
     text-decoration: none;

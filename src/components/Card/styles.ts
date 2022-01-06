@@ -13,6 +13,10 @@ export const Container = styled.div<ContainerProps>`
   background: linear-gradient(transparent 30%, ${(props) => props.color});
   transition: 0.3s;
   :hover {
+    background: linear-gradient(
+      transparent 0%,
+      ${(props) => darken(0.1, props.color)}
+    );
     --webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);

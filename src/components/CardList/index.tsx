@@ -10,7 +10,7 @@ interface Pokemon {
   name: string;
   secondType: string | null;
   sprite: string;
-  isFavorited: boolean;
+  isFavorite: boolean;
 }
 
 interface CardListProps {

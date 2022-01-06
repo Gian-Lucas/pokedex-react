@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
-import { formatPokemonId, getPokemonColor } from "../utils";
+import { useFavorites } from "../../hooks/useFavorites";
+import { formatPokemonId, getPokemonColor } from "../../utils";
 import { Container } from "./styles";
 
 interface CardProps {
@@ -14,10 +15,47 @@ interface CardProps {
   sprite: string;
 }
 
-export const Card = ({ id, name, firstType, sprite }: CardProps) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+export const Card = ({
+  id,
+  name,
+  firstType,
+  sprite,
+  secondType,
+  evolutionChain,
+  gameSprite,
+  gameSpriteShiny,
+}: CardProps) => {
+  const { favorites, addToFavorites, removeFromFavorites } = useFavorites();
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.find((pokemon) => pokemon.id === id) ? true : false
+  );
 
   const toogleIsFavorite = () => {
+    if (isFavorite) {
+      removeFromFavorites({
+        isFavorite,
+        id,
+        name,
+        firstType,
+        secondType,
+        sprite,
+        gameSprite,
+        gameSpriteShiny,
+        evolutionChain,
+      });
+    } else {
+      addToFavorites({
+        isFavorite,
+        id,
+        name,
+        firstType,
+        secondType,
+        sprite,
+        gameSprite,
+        gameSpriteShiny,
+        evolutionChain,
+      });
+    }
     setIsFavorite(!isFavorite);
   };
 

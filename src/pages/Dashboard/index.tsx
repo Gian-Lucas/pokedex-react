@@ -1,6 +1,5 @@
 import Loader from "react-loader-spinner";
 import { useEffect, useState } from "react";
-import { Header } from "../../components/Header";
 import { api } from "../../services/api";
 import { Container, Form } from "./styles";
 import { CardList } from "../../components/CardList";
@@ -14,7 +13,7 @@ interface Pokemon {
   name: string;
   secondType: string | null;
   sprite: string;
-  isFavorited: boolean;
+  isFavorite: boolean;
 }
 
 export const Dashboard = () => {
@@ -41,7 +40,6 @@ export const Dashboard = () => {
 
   return (
     <Container>
-      <Header />
       <Form>
         <label htmlFor="number-of-pokemons">Escolha a geração</label>
         <select
