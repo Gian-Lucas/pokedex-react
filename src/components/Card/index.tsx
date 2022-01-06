@@ -65,12 +65,16 @@ export const Card = ({
         <span>#{formatPokemonId(id)}</span>
 
         {isFavorite ? (
-          <MdFavorite className="icon" onClick={toogleIsFavorite} size={25} />
+          <MdFavorite
+            className="icon"
+            onClick={toogleIsFavorite}
+            size={"1.8rem"}
+          />
         ) : (
           <MdFavoriteBorder
             className="icon"
             onClick={toogleIsFavorite}
-            size={25}
+            size={"1.8rem"}
           />
         )}
       </div>

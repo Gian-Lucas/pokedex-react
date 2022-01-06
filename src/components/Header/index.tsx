@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <Container>
       <Link to="/" className="logo">
-        <CgPokemon size={40} />
+        <CgPokemon size={"2.5rem"} />
         <h1>Pokedex</h1>
       </Link>
 
