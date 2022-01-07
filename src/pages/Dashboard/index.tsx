@@ -32,7 +32,6 @@ export const Dashboard = () => {
 
       setPokemons(res.data);
       setLoaderVisible(false);
-      console.log(res.data);
     }
 
     getPokemons();

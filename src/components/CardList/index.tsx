@@ -17,9 +17,9 @@ interface CardListProps {
   pokemons: Pokemon[];
 }
 
-export const CardList = (pokemons: CardListProps) => (
+export const CardList = ({ pokemons }: CardListProps) => (
   <Container>
-    {pokemons.pokemons.map((pokemon) => (
+    {pokemons.map((pokemon) => (
       <Card {...pokemon} key={pokemon.id} />
     ))}
   </Container>

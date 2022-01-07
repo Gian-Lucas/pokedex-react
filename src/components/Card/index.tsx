@@ -65,8 +65,6 @@ export const Card = ({
     setIsFavorite(!isFavorite);
   };
 
-  // https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/fire-name.webp
-  // https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/water.png
   return (
     <Container color={getPokemonColor(firstType)}>
       <Modal
@@ -81,17 +79,17 @@ export const Card = ({
               <div className="types">
                 <img
                   className="first"
-                  src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${firstType}.png`}
+                  src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${firstType}.png`}
                   alt={firstType}
                 />
                 <img
-                  src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${secondType}.png`}
+                  src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${secondType}.png`}
                   alt={secondType}
                 />
               </div>
             ) : (
               <img
-                src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${firstType}.png`}
+                src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${firstType}.png`}
                 alt={firstType}
               />
             )}
@@ -117,17 +115,17 @@ export const Card = ({
                       <div className="types">
                         <img
                           className="first"
-                          src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${firstType}-name.webp`}
+                          src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${firstType}-name.webp`}
                           alt={firstType}
                         />
                         <img
-                          src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${secondType}-name.webp`}
+                          src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${secondType}-name.webp`}
                           alt={secondType}
                         />
                       </div>
                     ) : (
                       <img
-                        src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex/master/assets/${firstType}-name.webp`}
+                        src={`https://raw.githubusercontent.com/Gian-Lucas/pokedex-react/master/src/assets/${firstType}-name.webp`}
                         alt={firstType}
                       />
                     )}
