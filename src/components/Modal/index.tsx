@@ -35,7 +35,8 @@ export const Modal = ({ isOpen, setIsOpen, bg, children }: ModalProps) => {
           color: "#F0F0F5",
           background: bg,
           borderRadius: "8px",
-          width: "95%",
+          // height: "90%",
+          width: `${window.innerWidth > 800 ? "65%" : "95%"}`,
           border: "none",
         },
         overlay: {

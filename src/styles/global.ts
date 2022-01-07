@@ -20,9 +20,14 @@ export default createGlobalStyle`
         cursor: pointer;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 700px) {
         html {
             font-size: 60%;
+        }
+    }
+    @media (max-width: 1400px) {
+        html {
+            font-size: 80%;
         }
     }
 `;
