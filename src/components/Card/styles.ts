@@ -22,8 +22,9 @@ export const Container = styled.div<ContainerProps>`
     transform: scale(1.1);
   }
 
-  img {
+  .image {
     width: 90%;
+    cursor: pointer;
   }
 
   .header {
@@ -50,5 +51,67 @@ export const Container = styled.div<ContainerProps>`
     text-align: center;
     font-size: 1.3rem;
     font-weight: 500;
+  }
+`;
+
+export const PokemonsDetails = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 95%;
+  max-width: 720px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .types .first {
+      margin-right: 0.5rem;
+    }
+
+    img {
+      width: 2.3rem;
+    }
+
+    span {
+      font-size: 2rem;
+    }
+  }
+
+  .body {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 14rem;
+    }
+  }
+
+  .spanEvo {
+    font-size: 1.5rem;
+  }
+
+  .evolutions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    img {
+      width: 5rem;
+    }
+  }
+
+  .table {
+    img {
+      width: 4.5rem;
+    }
+    .first {
+      margin-right: 0.5rem;
+    }
   }
 `;
