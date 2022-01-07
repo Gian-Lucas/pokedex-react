@@ -75,11 +75,11 @@ export const PokemonsDetails = styled.div`
     }
 
     img {
-      width: 2.3rem;
+      width: 3rem;
     }
 
     span {
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 
@@ -87,12 +87,12 @@ export const PokemonsDetails = styled.div`
     width: 100%;
     text-align: center;
     img {
-      width: 14rem;
+      width: 27rem;
     }
   }
 
   .spanEvo {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .evolutions {
@@ -102,16 +102,37 @@ export const PokemonsDetails = styled.div`
     justify-content: space-around;
     margin-bottom: 1rem;
     img {
-      width: 5rem;
+      width: 7rem;
     }
   }
 
   .table {
+    font-size: 1.5rem;
+    color: #000;
+    table {
+      border-spacing: 0;
+    }
     img {
-      width: 4.5rem;
+      width: 5.2rem;
+    }
+    td {
+      padding: 0.6rem;
+      border: 1px solid #000;
     }
     .first {
       margin-right: 0.5rem;
+    }
+
+    .td-gray {
+      background: #aaa;
+      border-right: none;
+    }
+    .td-light-gray {
+      background: #ddd;
+    }
+
+    .not-border {
+      border-bottom: none;
     }
   }
 `;
