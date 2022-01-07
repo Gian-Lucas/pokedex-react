@@ -25,7 +25,7 @@ export default createGlobalStyle`
             font-size: 60%;
         }
     }
-    @media (max-width: 1400px) {
+    @media (min-width: 800px) {
         html {
             font-size: 80%;
         }
