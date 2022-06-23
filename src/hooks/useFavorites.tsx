@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
 interface Pokemon {
-  evolutionChain: [];
+  evolutionChain: Array<string>;
   firstType: string;
   gameSprite: string;
   gameSpriteShiny: string;

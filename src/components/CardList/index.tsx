@@ -2,7 +2,7 @@ import { Card } from "../Card";
 import { Container } from "./styles";
 
 interface Pokemon {
-  evolutionChain: [];
+  evolutionChain: Array<string>;
   firstType: string;
   gameSprite: string;
   gameSpriteShiny: string;

@@ -6,7 +6,7 @@ import { formatPokemonId, getPokemonColor } from "../../utils";
 import { Container } from "./styles";
 
 interface CardProps {
-  evolutionChain: [];
+  evolutionChain: Array<string>;
   firstType: string;
   gameSprite: string;
   gameSpriteShiny: string;
