@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "../../components/Card";
+import { CardVariant } from "../../components/CardVariant";
 import { api } from "../../services/api";
 import { formatPokemonId, getPokemonColor } from "../../utils";
 import { Container } from "./styles";
@@ -26,30 +27,68 @@ interface EvolutionChain extends PokemonDetails {
   evolutionChain: Array<string>;
 }
 
-interface Pokemon extends PokemonDetails {
+interface PokemonType extends PokemonDetails {
   evolutionChain: EvolutionChain[];
 }
 
 type PokemonDataResponse = {
   damageRelations: DamageRelations;
-  pokemon: Pokemon;
+  pokemon: PokemonType;
+};
+
+type Variant = {
+  id: number;
+  name: string;
+  sprite: string;
+  types: Array<string>;
 };
 
 export const Pokemon = () => {
   const { id } = useParams();
   const [pokemonData, setPokemonData] = useState<PokemonDataResponse>();
+  const [variants, setVariants] = useState<Variant[]>([]);
 
   useEffect(() => {
     getAllPokemonInfo();
   }, [id]);
 
   async function getAllPokemonInfo() {
-    const { data } = await api.get(`pokemon/${id}`);
+    const newVariants = [] as Variant[];
+
+    const res = await api.get(
+      `https://pokeapi.co/api/v2/pokemon-species/${id}`
+    );
+
+    const { varieties } = res.data;
+
+    if (varieties.length !== 1) {
+      await varieties.map(async (variant: any) => {
+        if (!variant.is_default) {
+          const variantRes = await api.get(variant.pokemon.url);
+
+          const types = variantRes.data.types.map((type: any) => {
+            return type.type.name;
+          });
+
+          const newVariant: Variant = {
+            id: variantRes.data.id,
+            name: variantRes.data.name,
+            types,
+            sprite:
+              variantRes.data.sprites.other["official-artwork"].front_default,
+          };
+
+          newVariants.push(newVariant);
+        }
+      });
+    }
+    const { data } = await api.get(
+      `https://be-pokedex.herokuapp.com/pokemon/${id}`
+    );
 
     setPokemonData(data);
+    setVariants(newVariants);
   }
-
-  // console.log(pokemonData);
 
   if (!pokemonData) {
     return (
@@ -66,7 +105,7 @@ export const Pokemon = () => {
     return pokemon.evolutionChain.find((poke) => poke.name === evolution);
   });
 
-  // console.log(evolutions);
+  console.log(variants);
 
   return (
     <Container bg={getPokemonColor(pokemon.firstType)}>
@@ -159,6 +198,22 @@ export const Pokemon = () => {
         <div className="cards">
           {evolutions.map((evolution) => {
             return evolution && <Card key={evolution.id} {...evolution} />;
+          })}
+        </div>
+      </section>
+
+      <section className="variants">
+        {variants.length !== 0 && <h1>Variantes</h1>}
+        <div className="cards">
+          {variants.map((variant) => {
+            return (
+              <CardVariant
+                key={variant.name}
+                name={variant.name}
+                sprite={variant.sprite}
+                types={variant.types}
+              />
+            );
           })}
         </div>
       </section>

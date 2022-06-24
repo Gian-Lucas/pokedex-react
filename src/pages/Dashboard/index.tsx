@@ -28,7 +28,9 @@ export const Dashboard = () => {
 
   useEffect(() => {
     async function getPokemons() {
-      const res = await api.get(`pokemon/all/${generation}`);
+      const res = await api.get(
+        `https://be-pokedex.herokuapp.com/pokemon/all/${generation}`
+      );
 
       setPokemons(res.data);
       setLoaderVisible(false);

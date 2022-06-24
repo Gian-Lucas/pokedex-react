@@ -69,7 +69,8 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 
-  section.evolutions {
+  section.evolutions,
+  section.variants {
     margin-top: 2rem;
     text-align: center;
 

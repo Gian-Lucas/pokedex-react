@@ -38,14 +38,14 @@ export const FavoritesProvider = ({
   });
 
   const addToFavorites = (pokemon: Pokemon) => {
-    console.log("add " + pokemon.name);
+    // console.log("add " + pokemon.name);
     const newFavorites = [...favorites, pokemon];
 
     setFavorites(newFavorites);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
   const removeFromFavorites = (pokemon: Pokemon) => {
-    console.log("remove " + pokemon.name);
+    // console.log("remove " + pokemon.name);
     const newFavorites = favorites.filter((poke) => poke.id !== pokemon.id);
 
     setFavorites(newFavorites);

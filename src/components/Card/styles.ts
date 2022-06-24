@@ -57,4 +57,20 @@ export const Container = styled.div<ContainerProps>`
   a {
     text-decoration: none;
   }
+
+  .types {
+    display: flex;
+
+    img {
+      width: 1.8rem;
+    }
+
+    .ml {
+      margin-left: 0.3rem;
+    }
+  }
+
+  .not-img {
+    color: #000;
+  }
 `;
