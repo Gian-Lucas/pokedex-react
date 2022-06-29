@@ -1,22 +1,22 @@
 import Loader from "react-loader-spinner";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { api } from "../../services/api";
 import { Container, Form } from "./styles";
 import { CardList } from "../../components/CardList";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
 
-interface Pokemon {
-  evolutionChain: [];
-  firstType: string;
-  gameSprite: string;
-  gameSpriteShiny: string;
-  id: string;
-  name: string;
-  secondType: string | null;
-  sprite: string;
-  isFavorite: boolean;
-}
+// interface Pokemon {
+//   evolutionChain: [];
+//   firstType: string;
+//   gameSprite: string;
+//   gameSpriteShiny: string;
+//   id: string;
+//   name: string;
+//   secondType: string | null;
+//   sprite: string;
+//   isFavorite: boolean;
+// }
 
 export const Dashboard = () => {
   const navigate = useNavigate();
