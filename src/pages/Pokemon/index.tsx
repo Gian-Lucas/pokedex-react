@@ -53,16 +53,22 @@ export const Pokemon = () => {
   }, [id]);
 
   async function getAllPokemonInfo() {
-    const newVariants = [] as Variant[];
+    const { data } = await api.get(
+      `https://be-pokedex.herokuapp.com/pokemon/${id}`
+    );
+    setPokemonData(data);
 
     const res = await api.get(
       `https://pokeapi.co/api/v2/pokemon-species/${id}`
     );
 
     const { varieties } = res.data;
+    const varietiesWIthoutDefault = varieties.filter(
+      (varietie: any) => varietie.is_default === false
+    );
 
     if (varieties.length !== 1) {
-      await varieties.map(async (variant: any) => {
+      const promiseArray = varietiesWIthoutDefault.map(async (variant: any) => {
         if (!variant.is_default) {
           const variantRes = await api.get(variant.pokemon.url);
 
@@ -78,16 +84,14 @@ export const Pokemon = () => {
               variantRes.data.sprites.other["official-artwork"].front_default,
           };
 
-          newVariants.push(newVariant);
+          return newVariant;
         }
       });
-    }
-    const { data } = await api.get(
-      `https://be-pokedex.herokuapp.com/pokemon/${id}`
-    );
 
-    setPokemonData(data);
-    setVariants(newVariants);
+      Promise.all(promiseArray).then((result) => {
+        setVariants(result);
+      });
+    }
   }
 
   if (!pokemonData) {
@@ -104,8 +108,6 @@ export const Pokemon = () => {
   const evolutions = evolutionsInOrder.map((evolution) => {
     return pokemon.evolutionChain.find((poke) => poke.name === evolution);
   });
-
-  // console.log(variants);
 
   return (
     <Container bg={getPokemonColor(pokemon.firstType)}>
