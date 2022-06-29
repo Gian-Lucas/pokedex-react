@@ -6,6 +6,7 @@ import { Pokemon } from "../pages/Pokemon";
 export const RoutesApp = () => (
   <Routes>
     <Route path="/" element={<Dashboard />} />
+    <Route path="/:id" element={<Dashboard />} />
     <Route path="/favorites" element={<Favorites />} />
     <Route path="/pokemon/:id" element={<Pokemon />} />
   </Routes>

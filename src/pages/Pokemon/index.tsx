@@ -105,7 +105,7 @@ export const Pokemon = () => {
     return pokemon.evolutionChain.find((poke) => poke.name === evolution);
   });
 
-  console.log(variants);
+  // console.log(variants);
 
   return (
     <Container bg={getPokemonColor(pokemon.firstType)}>
